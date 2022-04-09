@@ -30,31 +30,31 @@ import { useNavigation } from '@react-navigation/native'
 import { PokemonName, PokemonNumber } from '../Typography'
 import { memo } from 'react/cjs/react.production.min'
 
-
- function PokemonButton({ id, name, imgSrc, types, height, weight }) {
-
-    const getGetBadge = (badge, index) => {
-        switch (badge) {
-            case "bug": return <Bug key={index} style={{ marginHorizontal: 2 }} />
-            case "dark": return <Dark key={index} style={{ marginHorizontal: 2 }} />
-            case "dragon": return <Dragon key={index} style={{ marginHorizontal: 2 }} />
-            case "electric": return <Electric key={index} style={{ marginHorizontal: 2 }} />
-            case "fairy": return <Fairy key={index} style={{ marginHorizontal: 2 }} />
-            case "fighting": return <Fighting key={index} style={{ marginHorizontal: 2 }} />
-            case "flying": return <Flying key={index} style={{ marginHorizontal: 2 }} />
-            case "ghost": return <Ghost key={index} style={{ marginHorizontal: 2 }} />
-            case "ground": return <Ground key={index} style={{ marginHorizontal: 2 }} />
-            case "ice": return <Ice key={index} style={{ marginHorizontal: 2 }} />
-            case "rock": return <Rock key={index} style={{ marginHorizontal: 2 }} />
-            case "psychic": return <Psychic key={index} style={{ marginHorizontal: 2 }} />
-            case "steel": return <Steel key={index} style={{ marginHorizontal: 2 }} />
-            case "water": return <Water key={index} style={{ marginHorizontal: 2 }} />
-            case "grass": return <Grass key={index} style={{ marginHorizontal: 2 }} />
-            case "poison": return <Poison key={index} style={{ marginHorizontal: 2 }} />
-            case "normal": return <Normal key={index} style={{ marginHorizontal: 2 }} />
-            case "fire": return <Fire key={index} style={{ marginHorizontal: 2 }} />
-        }
+export const getGetBadge = (badge, index) => {
+    switch (badge) {
+        case "bug": return <Bug key={index} style={{ marginHorizontal: 2 }} />
+        case "dark": return <Dark key={index} style={{ marginHorizontal: 2 }} />
+        case "dragon": return <Dragon key={index} style={{ marginHorizontal: 2 }} />
+        case "electric": return <Electric key={index} style={{ marginHorizontal: 2 }} />
+        case "fairy": return <Fairy key={index} style={{ marginHorizontal: 2 }} />
+        case "fighting": return <Fighting key={index} style={{ marginHorizontal: 2 }} />
+        case "flying": return <Flying key={index} style={{ marginHorizontal: 2 }} />
+        case "ghost": return <Ghost key={index} style={{ marginHorizontal: 2 }} />
+        case "ground": return <Ground key={index} style={{ marginHorizontal: 2 }} />
+        case "ice": return <Ice key={index} style={{ marginHorizontal: 2 }} />
+        case "rock": return <Rock key={index} style={{ marginHorizontal: 2 }} />
+        case "psychic": return <Psychic key={index} style={{ marginHorizontal: 2 }} />
+        case "steel": return <Steel key={index} style={{ marginHorizontal: 2 }} />
+        case "water": return <Water key={index} style={{ marginHorizontal: 2 }} />
+        case "grass": return <Grass key={index} style={{ marginHorizontal: 2 }} />
+        case "poison": return <Poison key={index} style={{ marginHorizontal: 2 }} />
+        case "normal": return <Normal key={index} style={{ marginHorizontal: 2 }} />
+        case "fire": return <Fire key={index} style={{ marginHorizontal: 2 }} />
     }
+}
+
+
+function PokemonButton({ id, name, imgSrc, types, height, weight }) {
     const renderBadges = () => {
         let badges = [];
         for (let i of types) {
@@ -75,7 +75,7 @@ import { memo } from 'react/cjs/react.production.min'
         )
     }
     return (
-        <TouchableHighlight underlayColor={colors.button.primary} onPress={(e) => { console.log(id) }}
+        <TouchableHighlight underlayColor={colors.button.primary} onPress={(e) => { navigation.navigate('show', { id, name, imgSrc, types, height, weight }) }}
             style={[styles.buutonContainer, { backgroundColor: colors.type.backgrounds[types[0].type.name] || colors.button.secondary }]}>
             <>
                 <SvgXml style={{ position: 'absolute', left: normalize(90, 'width'), top: normalize(10, 'height') }} xml={_6x3Gradient} />

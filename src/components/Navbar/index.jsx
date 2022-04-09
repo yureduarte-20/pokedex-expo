@@ -2,7 +2,7 @@ import React from 'react';
 
 import { View, TouchableOpacity } from 'react-native'
 import { SvgUri, SvgXml } from 'react-native-svg'
-import { backXml, filterXml, searchXml, sortXml } from '../../../assets/icons'
+import { filterXml, searchXml, sortXml } from '../../../assets/icons'
 
 export default function Navbar({ openSortBackdrop }){
     return (
